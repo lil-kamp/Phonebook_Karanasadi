@@ -80,5 +80,15 @@ public class Phonebook_Test {
 
         assertTrue(phonebook.getAllContacts().get(0).isHidden());
     }
+    @Test
+    public void testSetAllContactsUnHidden() {
+        Phonebook phonebook = new Phonebook();
+        Person person = new Person("Frank Fisher", "09118523614");
+
+        phonebook.addContact(person);
+        phonebook.setAllContactsUnHidden();
+
+        assertFalse(phonebook.getAllContacts().get(0).isHidden());
+    }
 
 }
