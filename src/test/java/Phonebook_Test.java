@@ -13,4 +13,14 @@ public class Phonebook_Test {
 
         assertTrue(phonebook.getAllContacts().contains(person));
     }
+    @Test
+    public void testGetPhoneNumber() {
+        Phonebook phonebook = new Phonebook();
+        Person person = new Person("Jane Smith", "09121256454");
+
+        phonebook.addContact(person);
+
+        assertEquals("09121256454", phonebook.getPhoneNumber("Jane Smith"));
+        assertEquals("Contact Not Found", phonebook.getPhoneNumber("Nonexistent Person"));
+    }
 }
