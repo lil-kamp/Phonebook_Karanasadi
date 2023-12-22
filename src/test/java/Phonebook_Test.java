@@ -58,4 +58,16 @@ public class Phonebook_Test {
         assertEquals("09111234567", phonebook.getAllContacts().get(0).getPhone());
         assertEquals(0, phonebook.updateContactPhoneNumber("Nonexistent Person", "09111472586"));
     }
+    @Test
+    public void testDeleteContact() {
+        Phonebook phonebook = new Phonebook();
+        Person person = new Person("David Davis", "09126547812");
+
+        phonebook.addContact(person);
+
+        assertEquals(1, phonebook.deleteContact("David Davis"));
+        assertEquals(0, phonebook.getAllContacts().size());
+        assertEquals(0, phonebook.deleteContact("Nonexistent Person"));
+    }
+
 }
