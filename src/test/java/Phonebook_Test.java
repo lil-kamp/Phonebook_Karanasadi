@@ -70,4 +70,15 @@ public class Phonebook_Test {
         assertEquals(0, phonebook.deleteContact("Nonexistent Person"));
     }
 
+    @Test
+    public void testSetAllContactsHidden() {
+        Phonebook phonebook = new Phonebook();
+        Person person = new Person("Eva Evans", "09111236598");
+
+        phonebook.addContact(person);
+        phonebook.setAllContactsHidden();
+
+        assertTrue(phonebook.getAllContacts().get(0).isHidden());
+    }
+
 }
